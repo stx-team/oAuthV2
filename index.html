@@ -1,27 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Discord OAuth2 Redirect</title>
+  <title>ورود با دیسکورد</title>
 </head>
 <body>
-  <h1>Redirected from Discord OAuth2</h1>
-  <p id="status">Processing...</p>
+  <h1>ورود با دیسکورد</h1>
+  <a
+    href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify%20guilds.join"
+  >
+    <button>ورود با دیسکورد</button>
+  </a>
 
-  <script>
-    // گرفتن پارامتر code از URL
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    if (code) {
-      document.getElementById('status').textContent = 'Code received: ' + code;
-      
-      // اینجا میتونی کد رو به بک‌اند یا جایی ارسال کنی
-      // برای مثال: ارسال به API خودت برای گرفتن access token
-      
-    } else {
-      document.getElementById('status').textContent = 'No code found in URL.';
-    }
-  </script>
-</body>
-</html>
+  <p>بعد از ورود، به صفحه c
