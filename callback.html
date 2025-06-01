@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>Callback دیسکورد</title>
+</head>
+<body>
+  <h1>منتظر پردازش...</h1>
+
+  <script>
+    // گرفتن کد از URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    if (!code) {
+      document.body.innerHTML = '<h2>کد OAuth2 دریافت نشد!</h2>';
+    } else {
+      // ارسال کد به سرور بک‌اند برای گرفتن توکن و جوین کردن سرور
+      fetch('https://YOUR_BACKEND_DOMAIN/callback?code=' + code)
+        .then(res => res.text())
+        .then(text => {
+          document.body.innerHTML = '<h2>' + text + '</h2>';
+        })
+        .catch(err => {
+          document.body.innerHTML = '<h2>خطا در ارتباط با سرور: ' + err.message + '</h2>';
+        });
+    }
+  </script>
+</body>
+</html>
